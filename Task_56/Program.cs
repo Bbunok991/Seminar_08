@@ -29,15 +29,20 @@ int[,] Array(int row, int column, int leftRange, int rightRange)
 }
 void PrintArray(int[,] arrayForPrint)
 {
+    int[] sum_line = new int[arrayForPrint.GetLength(1)];
+    int sum = 0;
     for(int i = 0; i < arrayForPrint.GetLength(0); i++)
     {
         for(int j = 0; j < arrayForPrint.GetLength(1); j++)
         {
             System.Console.Write(arrayForPrint[i,j] + "\t");
+            sum += arrayForPrint[i, j];
         }
         System.Console.WriteLine();
+        sum_line[i] = sum;
     }
     System.Console.WriteLine("\n");
+    System.Console.WriteLine("{" + string.Join(", ", sum_line) + "}");
 }
 
 int row = InPut("Enter a row: ");
@@ -47,4 +52,3 @@ int rightRange = InPut("Enter a right range: ");
 int[,] matrix = Array(row, column, leftRange, rightRange);
 
 PrintArray(matrix);
-PrintArray2(matrix);
