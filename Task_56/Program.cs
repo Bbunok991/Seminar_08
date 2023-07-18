@@ -31,6 +31,7 @@ void PrintArray(int[,] arrayForPrint)
 {
     int[] sum_line = new int[arrayForPrint.GetLength(1)];
     int sum = 0;
+    int min = 0;
     for(int i = 0; i < arrayForPrint.GetLength(0); i++)
     {
         for(int j = 0; j < arrayForPrint.GetLength(1); j++)
@@ -40,6 +41,7 @@ void PrintArray(int[,] arrayForPrint)
         }
         System.Console.WriteLine();
         sum_line[i] = sum;
+        if(sum_line[i] < min) min = sum_line[i];
     }
     System.Console.WriteLine("\n");
     System.Console.WriteLine("{" + string.Join(", ", sum_line) + "}");
